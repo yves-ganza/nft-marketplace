@@ -9,7 +9,7 @@ A digital asset marketplace where you
 
 # Get started
 
-Visit https://nft-marketplace-murex.vercel.app/ and create your first digital asset
+Visit https://nft-marketplace-murex.vercel.app/ and create your first digital asset (Note that the smart contracts backing this application are on the Polygon network) 
 
 
 ![Screen Shot Hero](https://user-images.githubusercontent.com/75645764/143691680-3c7c0979-475f-47fd-9f6e-ebeed4022dc6.png)
