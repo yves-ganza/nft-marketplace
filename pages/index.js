@@ -18,7 +18,7 @@ export default function Home() {
   }, [])
 
   const loadNfts = async () => {
-    const url = `https://polygon-mumbai.infura.io/v3/${process.env.NEXT_PUBLIC_PROJECT_ID}`
+    const url = `https://polygon-mumbai.infura.io/v3/${process.env.PROJECT_ID}`
     const provider = new ethers.providers.JsonRpcProvider(url)
 
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
