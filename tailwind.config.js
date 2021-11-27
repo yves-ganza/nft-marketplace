@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       textColor: {
-        'primary': '#2D2D2A',
+        'primary': '#ffee58',
         'secondary': '#151514',
         'header': '#673ab7',
         'header-hover': '#c2aff0',

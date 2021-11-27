@@ -6,15 +6,15 @@ export default function NftCard({nft, onClick}){
         <div>
             <img src={nft.image} alt={nft.name} className="w-full p-4 h-36 sm:h-64 m-auto"/>
         </div>
-        <div className="m-3 p-4 rounded-lg bg-pink-primary">
+        <div className="m-3 p-4 mb-4 rounded-lg bg-pink-primary">
             <p className="text-white text-2xl font-bold ">
                 {nft.name}
             </p>
-            <p className="text-gray-200 text-sm font-semibold">
+            <p className="text-white text-sm font-semibold">
                 {nft.description}
             </p>
             <div className="flex items-center justify-between ">
-                <p className="text-white">
+                <p className="text-primary">
                     {nft.price} ETH
                 </p>
                 {
