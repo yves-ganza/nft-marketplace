@@ -1,36 +1,18 @@
 import '../styles/globals.css'
-import Link from 'next/link'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 function MyApp({ Component, pageProps }) {
 
+  window.addEventListener('contextmenu', e => e.preventDefault())
+
   return (
-    <div>
-      <nav className='border-b p-6 text-center'>
-        <p className='text-4xl font-bold'>Phoenx NFTs Marketplace</p>
-        <div className='flex mt-4'>
-          <Link href='/'>
-            <a className='mr-6 text-purple-500'>
-              Home
-            </a>
-          </Link>
-          <Link href='/create-item'>
-            <a className='mr-6 text-purple-500'>
-              Sell Digital Asset
-            </a>
-          </Link>
-          <Link href='/my-assets'>
-            <a className='mr-6 text-purple-500'>
-              My Digital Assets
-            </a>
-          </Link>
-          <Link href='/dashboard'>
-            <a className='mr-6 text-purple-500'>
-              Dashboard
-            </a>
-          </Link>
-        </div>
-      </nav>
-      <Component {...pageProps} />
+    <div className="flex flex-col leading-normal tracking-normal min-h-screen text-indigo-400 bg-cover bg-fixed" style={{backgroundImage: "url('hero.png')"}}>
+      <Header />
+      <div className='min-h-xl'>
+        <Component {...pageProps} />
+      </div>
+      <Footer />
     </div>
   )
   

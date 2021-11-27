@@ -69,34 +69,50 @@ export default function CreateItem(){
     }
 
     return(
-        <div className='flex justify-center'>
-            <div className='w-1/2 flex flex-col  pb-12'>
+        <div className="flex flex-col items-center w-full justify-center overflow-y-hidden">
+          <h1 className="pt-24 pb-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center">
+            Create
+            <span className="bg-clip-text text-transparent ml-2 bg-gradient-to-r  from-green-400 via-pink-500 to-purple-500">
+            Digital Asset
+            </span>
+          </h1>
+          <p className="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
+            Make it just right!
+          </p>
+          <div className='bg-gray-900 opacity-75 shadow-lg rounded-lg px-8 pt-6  mb-20 w-full max-w-xl flex justify-center'>
+            <div className='flex flex-col w-full py-12'>
                 <input 
                     type='text' 
                     placeholder='Asset Name' 
-                    className='mt-8 border rounded p-4'
+                    className='shadow appearance-none border rounded w-full px-3 py-5 mb-4 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out'
                     onChange = {e => setFormInput({...formInput, name: e.target.value})} />
                 <textarea
-                    className='mt-2 border rounded p-4' 
+                    placeholder='Asset description'
+                    className='shadow appearance-none border rounded w-full px-3 py-5 mb-4 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out'
                     onChange={e => setFormInput({...formInput, description: e.target.value})} />
                 <input 
                     type='text' 
                     placeholder='Asset price in Matic' 
-                    className='mt-2 border rounded p-4'
+                    className='shadow appearance-none border rounded w-full px-3 py-5 mb-4 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out'
                     onChange={e => setFormInput({...formInput, price: e.target.value})} />
+                <label htmlFor='asset' className='cursor-pointer shadow appearance-none border rounded w-full px-3 py-5 my-4 bg-gray-100 text-center text-semibold text-gray-500 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out'>Upload Image</label>
                 <input 
                     type='file' 
-                    name='Asset'
-                    className='my-4'
-                    onChange={onUpload} />
-                    {
-                        fileURL ? 
-                        <img className='rounded mt-4' width='350px' src={fileURL} alt='asset' /> : ''
-                    }
+                    name='asset'
+                    id='asset'
+                    onChange={onUpload} 
+                    className='hidden'
+                />
+                {
+                    fileURL ? 
+                    <img className='rounded mb-4' width='350px' src={fileURL} alt='asset' /> : ''
+                }
                 <button 
                     className='font-bold mt-4 bg-purple-500 text-white rounded p-4 shadow-lg'
                     onClick={createMarket}>Create Digital Asset</button>
             </div>
         </div>
+        </div>
+        
     )
 }
