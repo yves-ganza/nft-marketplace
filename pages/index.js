@@ -5,8 +5,8 @@ import Web3Modal from 'web3modal'
 
 import {nftaddress, nftmarketaddress} from '../config'
 
-import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
-import NFTMarket from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
+import NFT from '../abi/NFT.json'
+import NFTMarket from '../abi/NFTMarket.json'
 import NftCard from '../components/nftCard'
 
 export default function Home() {
@@ -18,7 +18,8 @@ export default function Home() {
   }, [])
 
   const loadNfts = async () => {
-    const provider = new ethers.providers.JsonRpcProvider()
+    const url = `https://polygon-mumbai.infura.io/v3/${process.env.PROJECT_ID}`
+    const provider = new ethers.providers.JsonRpcProvider(url)
 
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, NFTMarket.abi, provider)
@@ -68,7 +69,7 @@ export default function Home() {
   return (
     <div className='grid gap-y-4 pl-8 h-full lg:pl-32 py-4'>
       <header className='flex flex-col text-5xl pt-24 pb-12 gap-2'>
-        <p className='font-bold'>Discover the World's Top</p> 
+        <p className='font-bold'>Discover the World&apos;s Top</p> 
         <span className='font-bold bg-clip-text text-transparent bg-gradient-to-r  from-green-400 via-pink-500 to-purple-500'>Digital Assets</span>
       </header>
       {

@@ -7,8 +7,8 @@ import axios from 'axios'
 
 import { nftaddress, nftmarketaddress } from '../config'
 
-import NFTMarket from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
-import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
+import NFT from '../abi/NFT.json'
+import NFTMarket from '../abi/NFTMarket.json'
 
 export default function MyAssets(){
     const [assets, setAssets] = useState([])
