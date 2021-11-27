@@ -3,8 +3,8 @@ import {ethers} from 'ethers'
 import Web3Modal from 'web3modal'
 import axios from 'axios'
 
-import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
-import NFTMarket from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
+import NFT from '../abi/NFT.json'
+import NFTMarket from '../abi/NFTMarket.json'
 import { nftaddress, nftmarketaddress } from '../config'
 import NftCard from '../components/nftCard'
 
