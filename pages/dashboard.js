@@ -7,11 +7,14 @@ import NFT from '../abi/NFT.json'
 import NFTMarket from '../abi/NFTMarket.json'
 import { nftaddress, nftmarketaddress } from '../config'
 import NftCard from '../components/nftCard'
+import Alert from '../components/alert'
+import web3Compatible from '../utils/isWeb3Compatible'
 
 
 export default function Dashboard(){
     const [assets, setAssets]  = useState([])
     const [sold, setSold] = useState([])
+    const [isWeb3Compatible, setIsWeb3Compatible] = useState(false)
 
     const fetchAssets  = async () => {
         const web3Modal = new Web3Modal()
@@ -76,8 +79,11 @@ export default function Dashboard(){
     }
 
     useEffect(() => {
+      setIsWeb3Compatible(web3Compatible())
         fetchAssets()
     }, [])
+
+    if(!isWeb3Compatible) return <Alert />
 
     return(
         <div className='flex flex-col lg:flex-row pl-32'>
