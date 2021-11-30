@@ -68,7 +68,7 @@ export default function Home() {
 
   return (
     <div className='grid gap-y-4 pl-8 h-full lg:pl-32 py-4'>
-      <header className='flex flex-col text-5xl pt-24 pb-12 gap-2'>
+      <header className='flex flex-col text-5xl py-12 gap-2'>
         <p className='font-bold'>Discover the World&apos;s Top</p> 
         <span className='font-bold bg-clip-text text-transparent bg-gradient-to-r  from-green-400 via-pink-500 to-purple-500'>Digital Assets</span>
       </header>

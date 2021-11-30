@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ethers } from "ethers"
 import { create } from "ipfs-http-client"
 import Web3Modal from 'web3modal'
@@ -8,12 +8,15 @@ import { nftaddress, nftmarketaddress } from '../config'
 import NFT from '../abi/NFT.json'
 import NFTMarket from '../abi/NFTMarket.json'
 import { useRouter } from 'next/router'
+import web3Compatible from '../utils/isWeb3Compatible'
+import Alert from '../components/alert'
 
 const client = create('https://ipfs.infura.io:5001/api/v0')
 
 export default function CreateItem(){
     const [fileURL, setFileURL] = useState()
     const [formInput, setFormInput] = useState({name: '', description: '', price: ''})
+    const [isWeb3Compatible, setIsWeb3Compatible] = useState(false)
 
     const router = useRouter()
 
@@ -68,9 +71,15 @@ export default function CreateItem(){
         router.push('/')
     }
 
+    useEffect(() => {
+        setIsWeb3Compatible(web3Compatible())
+    })
+
+    if(!isWeb3Compatible) return <Alert />
+
     return(
         <div className="flex flex-col items-center w-full justify-center overflow-y-hidden">
-          <h1 className="pt-24 pb-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center">
+          <h1 className="pt-12 pb-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center">
             Create
             <span className="bg-clip-text text-transparent ml-2 bg-gradient-to-r  from-green-400 via-pink-500 to-purple-500">
             Digital Asset
